@@ -1,0 +1,442 @@
+
+<div (window:resize)="onResize($event)" class="wrapper">
+<div style="height:70px;background-color: #2d3136;">
+  <div style="width: fit-content;padding-top: 25px;margin-left: 220px;">
+    <input style="width: 240px;border-radius: 1px;border: none;background: rgba(64, 69, 76, .80);height: 23px;" type="text" placeholder="Search..">
+  </div>
+  <style>
+    .nameSection div{
+      margin-right: 5px;
+    }
+  </style>
+  <div class="nameSection" style="align-items: center;margin-right: 20px;margin-top: -33px;display: flex;float:right;">
+    <div style="margin-right: 8px;"><span style="font-size: 15px;color: white;">David Spancer</span></div>
+    <div><div style="height: 40px;width: 40px;border-radius: 50%;"><img style="border-radius: 50%;width: 100%;" src="assets/images/portrait.jpg" alt=""></div></div>
+    <div><div style="height: 10px;width: 10px;border-radius: 50%;"><img style="cursor: pointer;;border-radius: 50%;width: 100%;" src="assets/images/Polygon1.svg" alt=""></div></div>
+    <div><div style="height: 20px;width: 20px"><span class="three-dots-menu">...</span></div></div>
+
+
+  </div>
+  
+</div>
+
+
+<div class="side-menu" >
+<span style="font-family: sans-serif;top: 22px;position: relative;font-size: 21px;left: 19px;;color: rgb(228, 228, 228);">Quanti Analytics</span>
+<div style="margin-top: 110px;">
+  <style>
+    ul li a {
+      list-style-type: none;
+      text-decoration: none;
+      
+    }
+   
+     a:hover {
+  color: #34B6D2;
+  transition: 0.5s;
+     }
+    ul li {
+      list-style-type: none;
+      
+    }
+  </style>
+  <ul>
+    <li><a  href="#home">Dashboard</a></li>
+    <li><a href="#news">Shortcuts</a></li>
+    <li><a href="#contact">Events</a></li>
+    <li><a href="#about">Real time</a></li>
+    <li><a href="#about">Audience</a></li>
+    <li><a href="#about">Conversion</a></li>
+  </ul>
+</div>
+</div>
+
+<div class="overview-wrapper" style="margin-top: 20px;display: flex;align-items: stretch;">
+  <div class="line-chart-wrapper"> 
+    <div class="header-name"><span >Overview</span>
+      <div  style="position: relative;right: -475px;">
+        <span class="header-second-name">Sessions</span>
+        <span><img class="triangle-arrow" src="assets/images/Polygon1.svg" alt=""></span>
+        <span class="three-dots-menu">...</span>
+  
+      </div>
+     
+    </div>
+    <div style="height: 500px;;width: 700px;display: block;" *ngIf='serv.exampleData'>
+      <canvas baseChart
+      [datasets]="serv.exampleData"
+      [labels]="serv.chartLabels"
+      [options]="chartOptions"
+      [legend]="chartLegend"
+      [chartType]="chartType"></canvas>
+     
+    </div>
+
+  </div>
+  
+  <div style="border-bottom-right-radius: 3px;border-top-right-radius:3px ;width: 200px;background-color: #292d31;">
+    <div>
+      <canvas baseChart
+      [datasets]="serv.exampleData"
+      [labels]="serv.chartLabels"
+      [options]="chartOptions"
+      [legend]="chartLegend"
+      [chartType]="chartType"></canvas>
+    </div>
+    <div>
+      <canvas baseChart
+      [datasets]="serv.exampleData"
+      [labels]="serv.chartLabels"
+      [options]="chartOptions"
+      [legend]="chartLegend"
+      [chartType]="chartType"></canvas>
+    </div>
+    <div>
+      <canvas baseChart
+      [datasets]="serv.exampleData"
+      [labels]="serv.chartLabels"
+      [options]="chartOptions"
+      [legend]="chartLegend"
+      [chartType]="chartType"></canvas>
+    </div>
+    <div style="text-align: center;margin-top: 46px;">
+      <button style="border: none;color: white;background-color: #393e44;border-radius: 3px;height: 30px;width: 130px;">VIEW REPORTS</button>
+    </div>
+  </div>
+
+</div>
+<div style="margin-top:15px;margin-left: 220px;display: flex;">
+  <div style="background: rgba(64, 69, 76, .30);border-radius: 3px;width: 130px;margin-right: 15px;width: 290px;height: 290px">
+    <div class="header-name"><span >Devices</span>
+      <div  style="position: relative;right: -85px;">
+        <span class="header-second-name">Overview</span>
+        <span><img class="triangle-arrow" src="assets/images/Polygon1.svg" alt=""></span>
+        <span class="three-dots-menu">...</span>
+  
+      </div>
+     
+    </div>
+     
+    
+      <div class="devices-chart-wrapper" >
+        
+        <div class="douthnutChart" style="margin-left: 15px;width:160px;height: 160px;">
+          <div class="circle-chart-inner-text">
+            <div >
+              <span class="douthnut-large-numbers">9,850</span>
+             <div><span class="total-users-text">Total users</span></div>
+     
+            </div>
+       
+          </div>
+        
+          <canvas  baseChart
+            [datasets]="serv.exampleDouthnut.datasets"
+            [chartType]="chartDType"
+            [options]="chartDoptions"
+        
+        ></canvas>
+          
+        </div>
+        <div class="numbers-and-text-wrapper">
+          <div class="numbers-and-text-item">
+            <div style="display: flex;">
+              <div >
+                <img class="circle-icon" src="./assets/images/pink5x5.svg" alt="">
+              </div>
+              <div>
+                <span class="douthnut-large-numbers" *ngIf="serv.t !== undefined">{{serv.t[0]}}</span>
+              </div>
+  
+            </div>
+           
+           <div><span class="douthnut-small-text">Desktop</span></div>
+           <div class="douthnut-small-text-divider"></div>
+          </div>
+          <div class="numbers-and-text-item">
+            <div style="display: flex;">
+              <div >
+                <img class="circle-icon" src="./assets/images/blue5x5.svg" alt="">
+              </div>
+              <div>
+                <span class="douthnut-large-numbers" *ngIf="serv.t !== undefined">{{serv.t[1]}}%</span>
+              </div>
+  
+            </div>
+           
+           <div><span class="douthnut-small-text">Mobile</span></div>
+           <div class="douthnut-small-text-divider"></div>
+          </div>
+          <div class="numbers-and-text-item">
+            <div style="display: flex;">
+              <div >
+                <img class="circle-icon" src="./assets/images/red5x5.svg" alt="">
+              </div>
+              <div>
+                <span class="douthnut-large-numbers" *ngIf="serv.t !== undefined">{{serv.t[2]}}%</span>
+              </div>
+  
+            </div>
+           
+           <div><span class="douthnut-small-text">Tablet</span></div>
+           <div class="douthnut-small-text-divider"></div>
+          </div>
+         
+           
+        </div>
+       
+  
+    </div>
+    
+    
+    
+  
+  
+  </div>
+<div  class="demographics-wrapper">
+  <div  style="width:100%;">
+    <div class="header-name" style="margin-bottom: 5px;"><span >Demographics</span>
+      <div  style="position: relative;right: -45px;">
+        <span class="header-second-name">Age</span>
+        <span><img class="triangle-arrow" src="assets/images/Polygon1.svg" alt=""></span>
+        <span class="three-dots-menu">...</span>
+  
+      </div>
+     
+    </div>
+    <canvas baseChart
+      [datasets]="serv.exampleBar.datasets"
+      [options]="chartBarOptions"
+      [chartType]="chartBType"
+      ></canvas>
+    
+    
+  </div>
+
+</div>
+
+<div class="demographics-wrapper">
+  <div  style="width:100%;">
+    <div class="header-name"><span >New users</span>
+      <div  style="position: relative;right: -25px;">
+        <span class="header-second-name">Last 30 days</span>
+        <span><img class="triangle-arrow" src="assets/images/Polygon1.svg" alt=""></span>
+        <span class="three-dots-menu">...</span>
+  
+      </div>
+     
+    </div>
+    <!--  [datasets]="lineChartData"
+    [chartType]="chartDType"
+      [options]="chartHalf"
+    -->
+    <canvas baseChart style="max-width: 200px;margin:0 auto;padding-bottom: 26px;padding-top: 26px;" 
+      [datasets]="serv.exampleHalf" 
+      [chartType]="chartDType"
+      [options]="chartHalf"
+      ></canvas>
+      <!-- <input type="button" value="ok" (click)='ale()'> -->
+      <div class="new-users-horizontal-divider"></div>
+
+      <div style="max-width: 85%;
+      display: flex;
+      margin: 0 auto;display: flex;padding-top: 20px;">
+        <div class="new-users-numbers-and-text-item">
+          <div style="display: flex;">
+            <div >
+              <img class="new-users-circle-icon" src="./assets/images/pink5x5.svg" alt="">
+            </div>
+            <div>
+              <span class="new-users-large-numbers" *ngIf="serv.t !== undefined">{{serv.t[1]}}%</span>
+            </div>
+
+          </div>
+         
+         <div><span class="new-users-small-text">New Users growth</span></div>
+        </div>
+        <div class="new-users-vertical-divider"></div>
+        <div class="new-users-numbers-and-text-item">
+          <div style="display: flex;">
+            <div >
+              <img class="new-users-circle-icon" src="./assets/images/pink5x5.svg" alt="">
+            </div>
+            <div>
+              <span class="new-users-large-numbers" *ngIf="serv.t !== undefined">{{serv.t[0]}}%</span>
+            </div>
+
+          </div>
+         
+         <div><span class="new-users-small-text">Conversion rate</span></div>
+        </div>
+      </div>
+      
+      
+    
+    
+  </div>
+
+</div>
+
+</div>
+<div style="margin-top:15px;margin-left: 220px;display: flex;">
+  <div style="background: rgba(64, 69, 76, .30);border-radius: 3px;margin-right: 16px;width: 442px;height: 280px">
+    <div class="header-name"><span >Acquisition</span>
+      <div  style="position: relative;right: -210px;">
+        <span class="header-second-name">Source</span>
+        <span><img class="triangle-arrow" src="assets/images/Polygon1.svg" alt=""></span>
+        <span class="three-dots-menu">...</span>
+  
+      </div>
+     
+    </div>
+    <div class="customers-wrapper" >
+      <table id="customers">
+        <tr >
+          <th>Source</th>
+          <th>Visits</th>
+          <th>Pages</th>
+          <th>Time</th>
+          
+          <th>Bounce</th>
+        </tr>
+        <tr>
+          <td>Facebook</td>
+          <td>71 (24.5%)</td>
+          <td>3.5</td>
+          <td>3:19</td>
+          <td>72 (36.5)</td>
+        </tr>
+        <tr>
+          <td style="color: #34B6D2;">Google</td>
+          <td>55 (34.6%)</td>
+          <td>2.6</td>
+          <td>4:15</td>
+          <td>43 (44.4)</td>
+        </tr>
+        <tr>
+          <td>Instagram</td>
+          <td>27 (16.4%)</td>
+          <td>4.5</td>
+          <td>16:43</td>
+          <td>56 (54.7)</td>
+        </tr>
+        <tr style="border-bottom: 0px solid red;">
+          <td>Bing</td>
+          <td>11 (14.5%)</td>
+          <td>3.5</td>
+          <td>12:48</td>
+          <td>32 (11.2)</td>
+        </tr>
+        
+       
+       
+      </table>
+    </div>
+  
+  </div>
+  <div style="background: rgba(64, 69, 76, .30);border-radius: 3px;width: 442px;height: 160px">
+    <div class="header-name"><span >Location</span>
+      <div  style="position: relative;right: -230px;">
+        <span class="header-second-name">Sort by</span>
+        <span><img class="triangle-arrow" src="assets/images/Polygon1.svg" alt=""></span>
+        <span class="three-dots-menu">...</span>
+  
+      </div>
+      
+      
+     
+    </div>
+    <div class="loc-items-wrapper">
+    <div>
+      <div class="loc-item" >
+        <div class="loc-item-chart" > <span class="loc-item-text">USA</span></div>
+        <div class="loc-item-progress">
+          <div class="loc-item-progress-inner" *ngIf="serv.t !== undefined" [style.width]="serv.t[1]+'%'"></div>
+        </div>
+        <div class="loc-item-chart"> <span class="loc-item-text" *ngIf="serv.t !== undefined">{{serv.t[1]}}%</span></div>
+        </div>  
+        <div class="loc-item" >
+          <div class="loc-item-chart" > <span class="loc-item-text">Denmark</span></div>
+          <div class="loc-item-progress">
+            <div class="loc-item-progress-inner" *ngIf="serv.t !== undefined" [style.width]="serv.t[0]+'%'"></div>
+          </div>
+          <div class="loc-item-chart"> <span class="loc-item-text" *ngIf="serv.t !== undefined">{{serv.t[0]}}%</span></div>
+          </div>  
+          <div class="loc-item" >
+            <div class="loc-item-chart" > <span class="loc-item-text">Canada</span></div>
+            <div class="loc-item-progress">
+              <div class="loc-item-progress-inner" *ngIf="serv.t !== undefined" [style.width]="serv.t[2]+'%'"></div>
+            </div>
+            <div class="loc-item-chart"> <span class="loc-item-text" *ngIf="serv.t !== undefined">{{serv.t[2]}}%</span></div>
+            </div> 
+            <div class="loc-item" >
+              <div class="loc-item-chart" > <span class="loc-item-text">England</span></div>
+              <div class="loc-item-progress">
+                <div class="loc-item-progress-inner" *ngIf="serv.t !== undefined" [style.width]="serv.t[0]+'%'"></div>
+              </div>
+              <div class="loc-item-chart"> <span class="loc-item-text" *ngIf="serv.t !== undefined">{{serv.t[0]}}%</span></div>
+              </div> 
+
+    </div>
+    
+   
+          </div>
+    <div class="last-section">
+      <div style="max-width: 75%;
+      display: flex;
+      margin: 0 auto;display: flex;padding-top: 30px;">
+        <div class="new-users-numbers-and-text-item">
+          <div style="display: flex;">
+            <div >
+              <img class="new-users-circle-icon" src="./assets/images/pink5x5.svg" alt="">
+            </div>
+            <div>
+              <span class="new-users-large-numbers">45.63%</span>
+            </div>
+
+          </div>
+         
+         <div><span class="new-users-small-text">Goal conversation rate</span></div>
+         <div style="margin-left: 18px;
+         height: 3px;
+         background-color: #C04DD8;
+         width: 120px;
+         margin-top: 8px;"></div>
+        </div>
+        
+        <div class="new-users-vertical-divider"></div>
+        <div class="new-users-numbers-and-text-item">
+          <div style="display: flex;">
+            <div >
+              <img class="new-users-circle-icon" src="./assets/images/pink5x5.svg" alt="">
+            </div>
+            <div>
+              <span class="new-users-large-numbers">60.32%</span>
+            </div>
+
+          </div>
+         
+         <div><span class="new-users-small-text">Goal completions</span></div>
+         <div style="margin-left: 18px;
+         height: 3px;
+         background-color: #F0C757;
+         width: 120px;
+         margin-top: 8px;"></div>
+
+        </div>
+        
+      </div>
+
+
+
+    </div>
+
+       
+       
+   
+  
+  </div>
+  
+  
+  </div>
+</div>

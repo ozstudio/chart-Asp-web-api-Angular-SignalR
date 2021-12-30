@@ -1,0 +1,70 @@
+<style>
+    .container{
+        height: 100vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 70px .5fr .5fr 250px 1fr;
+        grid-gap: 15px;
+        grid-template-areas: 
+        "nav nav nav nav"
+        "sidebar line-chart-wrappe line-chart-wrappe page-v"
+        "sidebar line-chart-wrappe line-chart-wrappe arrange-t"
+        "sidebar devices-w demog new-u"
+        
+        
+        
+    }
+    div{
+        color: beige;
+    }
+    nav{
+        background-color: darkmagenta;
+        grid-area: nav;
+        
+    }
+    .sidebar{
+        background-color:darkorange;
+        grid-area: sidebar;
+        
+    }
+    .line-chart-wrappe{
+        background-color: blue;
+        grid-area: line-chart-wrappe;
+    }
+    .devices-wrapper{
+        background-color: cadetblue;
+        grid-area:devices-w;
+    }
+    .demo-wrapper{
+        background-color: coral;
+        
+    }
+    .new-users-wrappe{
+        background-color: cyan;
+        grid-area: new-u;
+    }
+    .page-v{
+        background-color: azure;
+        grid-area: page-v;
+    }
+    .arrange-t{
+        background-color: brown;
+        grid-area: arrange-t;
+    }
+    .demog{
+        background-color: rgb(75, 69, 43);
+        grid-area: demog;
+    }
+
+</style>
+<div class="container">
+    <nav>navbar</nav>
+    <div class="sidebar">sidebar</div>
+    <div class="line-chart-wrappe">line-chart-wrappe</div>
+   <div class="page-v">page v</div>
+   <div class="arrange-t">arrange-t</div>
+    <div class="new-users-wrappe">new-users-wrappe</div>
+    <div class="demog">demog</div>
+    <div class="devices-wrapper">devices-wrapper</div>
+
+</div>
